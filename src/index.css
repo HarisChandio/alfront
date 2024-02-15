@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+   
+   *{
+       padding: 0%;
+       margin: 0%;
+       box-sizing: border-box;
+       font-family:'gilroy' ;
+       font-size: 18px;
+       font-weight: 500;
+       
+       
+   }
+
+/* ===================Home========= */
+#hero2 {
+    padding: 40px 0px 0px 80px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 5px;
+    grid-template-areas:
+        'box1 box1 box2'
+        'box3 box6 box2';
+    height: 60vh;
+    width: 200rem;
+    
+}
+
+
+#box11 {
+    grid-area: box1;
+    background-image: url('https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+}
+
+#box22 {
+    grid-area: box2;
+ 
+    background-image: url('https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D');
+    background-size: cover;
+}
+
+#box33 {
+    grid-area: box3;
+
+    background-image: url('https://images.unsplash.com/photo-1496469888073-80de7e952517?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8');
+    background-size: cover;
+}
+
+
+#box66 {
+    grid-area: box6;
+   
+    background-image: url('https://images.unsplash.com/photo-1534009916851-7850ba974f9c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+}
+@media only screen and (max-width: 768px) {
+    #hero2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        height: auto;
+        width: auto;
+        padding: 20px;
+    }
+}
+
+/* Media Query for Phones and Smaller Screens */
+@media only screen and (max-width: 480px) {
+    #hero2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        height: auto;
+        width: auto;
+        padding: 10px;
+    }
+}
+
+
+
+
+#main-con{
+position: absolute;
+left: 28%;
+top: 38%;   
+font-size: 100px; 
+color: #1e40af;
+}
+
+#hero span{
+    color: #1e40af;
+    position: relative;
+    left: 270px;
+    font-family: josefin Sans;
+    font-size: 150px;
+}
+
+/* ==========================Donation page================================ */
+
+#form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    
+    
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: black;
+}
+.required::after {
+    content:" *";
+    color: red;}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #172554;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: #2a4087;
+}
+
+/* Volenteering */
+#Vol_dets{
+    width: 500px;
+    height:750px;
+    position: relative;
+    left: 30vw;
+    margin-top: 40px;
+    pad: 20px;
+}
+#vol-btn{
+    background-color: #213476;
+    color: white;
+     padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+#vol-btn:hover {
+    background-color:#2a4087;
+}
