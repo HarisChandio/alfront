@@ -35,29 +35,29 @@
 
 #box11 {
     grid-area: box1;
-    background-image: url('https://images.unsplash.com/photo-1525921429624-479b6a26d84d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-image: url('https://hyd.szabist.edu.pk/images/Slider-01.jpg');
     background-size: cover;
 }
 
 #box22 {
     grid-area: box2;
  
-    background-image: url('https://images.unsplash.com/photo-1496317899792-9d7dbcd928a1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D');
+    background-image: url('https://hyd.szabist.edu.pk/images/Slider-06.jpg');
     background-size: cover;
 }
 
 #box33 {
     grid-area: box3;
 
-    background-image: url('https://images.unsplash.com/photo-1496469888073-80de7e952517?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8');
+    background-image: url('https://hyd.szabist.edu.pk/images/Slider-05.jpg');
     background-size: cover;
 }
 
 
 #box66 {
     grid-area: box6;
-   
-    background-image: url('https://images.unsplash.com/photo-1534009916851-7850ba974f9c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    /*  */
+    background-image: url('https://hyd.szabist.edu.pk/images/Slider-08.jpg');
     background-size: cover;
 }
 @media only screen and (max-width: 768px) {

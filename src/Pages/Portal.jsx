@@ -16,11 +16,30 @@ const ChatContent = () => {
     </div>
   );
 };
+import axios from 'axios';
 
 const ProfileContent = ({ profileData, handleInputChange }) => {
+  const handleUpdateProfile = async () => {
+    try {
+      const formData = new FormData();
+      formData.append('profilePicture', profileData.profilePicture);
+      formData.append('age', profileData.age);
+      formData.append('job', profileData.job);
+
+      const response = await axios.post("http://localhost:3000/api/auth/profile", formData, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("token")}`
+        }
+      });
+
+      console.log("Profile updated successfully:", response.data);
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+  };
+
   return (
     <div className="bg-white p-6 rounded-md shadow-md mb-8">
-      {/* ... (ProfileContent code) */}
       <h2 className="text-3xl font-bold mb-4">Profile</h2>
       <div className="flex items-center mb-4">
         <img
@@ -35,28 +54,11 @@ const ProfileContent = ({ profileData, handleInputChange }) => {
           <input
             type="file"
             accept="image/*"
-            onChange={(e) => {
-              const reader = new FileReader();
-              reader.onload = (event) => {
-                handleInputChange("profilePicture", event.target.result);
-              };
-              reader.readAsDataURL(e.target.files[0]);
-            }}
+            onChange={(e) => handleInputChange("profilePicture", e.target.files[0])}
           />
         </div>
       </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-black mb-1">
-          Name
-        </label>
-        <input
-          type="text"
-          name="name"
-          value={profileData.name}
-          onChange={(e) => handleInputChange("name", e.target.value)}
-          className="mt-1 p-2 w-full border rounded-md"
-        />
-      </div>
+
       <div className="mb-4">
         <label className="block text-sm font-medium text-black mb-1">Age</label>
         <input
@@ -67,30 +69,31 @@ const ProfileContent = ({ profileData, handleInputChange }) => {
           className="mt-1 p-2 w-full border rounded-md"
         />
       </div>
+
       <div className="mb-4">
         <label className="block text-sm font-medium text-black mb-1">
-          Education
+          Job Status
         </label>
         <input
           type="text"
-          name="education"
-          value={profileData.education}
-          onChange={(e) => handleInputChange("education", e.target.value)}
+          name="jobStatus"
+          value={profileData.job}
+          onChange={(e) => handleInputChange("job", e.target.value)}
           className="mt-1 p-2 w-full border rounded-md"
         />
       </div>
       <button
         className="bg-blue-500 text-white p-2 rounded-md"
-        onClick={() => {
-          // Add your logic for updating the profile here
-          console.log("Updating profile...");
-        }}
+        onClick={handleUpdateProfile}
       >
         Update Profile
       </button>
     </div>
   );
 };
+
+
+
 
 const JobListingsContent = () => {
   // ... (JobListingsContent code)
@@ -302,12 +305,13 @@ const Portal = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-300">
-      {/* Sidebar on the left */}
-      <div className="w-1/4 bg-white p-4 shadow-md">
-        <h2 className="text-2xl font-bold mb-4">Features</h2>
-        <ul>
-          <li
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-300">
+  {/* Sidebar on the left */}
+  <div className="w-full md:w-1/4 bg-white p-4 shadow-md">
+    <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Features</h2>
+    <ul>
+      {/* ... (existing list items) */}
+ <li
             className={`cursor-pointer mb-2 p-2 ${
               selectedFeature === "profile"
                 ? "bg-blue-950 text-white rounded"
@@ -337,61 +341,48 @@ const Portal = () => {
           >
             Alumni Directory
           </li>
-          {/* Add a new option for chat */}
-          <li
-            className={`cursor-pointer mb-2 p-2 ${
-              selectedFeature === "chat"
-                ? "bg-blue-950 text-white rounded"
-                : "hover:bg-gray-200"
-            }`}
-            onClick={() => handleFeatureClick("chat")}
-          >
-            Chat
-          </li>
-        </ul>
-      </div>
-
-      {/* Main content on the right */}
-      <div className="flex-1 p-4">
-      <header className="bg-blue-950 p-3 text-white mb-4 shadow-md">
-  <div className="container mx-auto flex justify-between items-center">
-    <h1 className="text-4xl font-bold">FYP Portal</h1>
-    <div className="flex items-center">
-      <div className="flex items-center">
-        <input
-          type="text"
-          id="search"
-          className="p-2 border border-gray-300 rounded relative top-2 text-black"
-          placeholder="Search"
-        />
-        <button className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-400  rounded-lg text-sm px-2 lg:px-5 py-2 lg:py-2.5 focus:outline-none font-size: 1.125rem relative left-2">
-          Search
-        </button>
-      </div>
-    </div>
-    <Link
-              to="/"
-              className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-400  rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none font-size: 1.125rem"
-            >
-              Logout
-            </Link>
+    </ul>
   </div>
-</header>
 
-
-        {/* Conditionally render content based on the selected feature */}
-        {selectedFeature === "profile" && (
-          <ProfileContent
-            profileData={profileData}
-            handleInputChange={handleInputChange}
-          />
-        )}
-        {selectedFeature === "jobListings" && <JobListingsContent />}
-        {selectedFeature === "alumniDirectory" && <AlumniDirectoryContent />}
-        {selectedFeature === "chat" && <ChatContent />}{" "}
-        {/* Add the ChatContent component */}
+  {/* Main content on the right */}
+  <div className="flex-1 p-4">
+    <header className="bg-blue-950 p-3 text-white mb-4 shadow-md">
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center">
+        <h1 className="text-2xl sm:text-4xl font-bold">FYP Portal</h1>
+        <div className="flex items-center mt-2 sm:mt-0">
+          {/* <div className="flex items-center">
+            <input
+              type="text"
+              id="search"
+              className="p-2 border border-gray-300 rounded relative top-2 text-black"
+              placeholder="Search"
+            />
+            <button className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-400 rounded-lg text-xs sm:text-sm px-2 sm:px-5 py-1 sm:py-2.5 focus:outline-none relative left-2">
+              Search
+            </button>
+          </div> */}
+        </div>
+        <Link
+          to="/"
+          className="text-white bg-blue-900 hover:bg-blue-800 focus:ring-4 focus:ring-blue-400 rounded-lg text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 mr-2 focus:outline-none mt-2 sm:mt-0"
+        >
+          Logout
+        </Link>
       </div>
-    </div>
+    </header>
+
+    {/* Conditionally render content based on the selected feature */}
+    {selectedFeature === "profile" && (
+      <ProfileContent
+        profileData={profileData}
+        handleInputChange={handleInputChange}
+      />
+    )}
+    {selectedFeature === "jobListings" && <JobListingsContent />}
+    {selectedFeature === "alumniDirectory" && <AlumniDirectoryContent />}
+    {selectedFeature === "chat" && <ChatContent />}
+  </div>
+</div>
   );
 };
 

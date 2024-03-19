@@ -74,7 +74,7 @@ export default function Header() {
                   Volunteer
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink
                   to="donate"
                   className={({ isActive }) =>
@@ -89,7 +89,7 @@ export default function Header() {
                 >
                   Donate
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                 <NavLink
                   to="about"

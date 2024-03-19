@@ -1,5 +1,21 @@
-import React from 'react';
+import axios from 'axios';
+import {React,useEffect,useState} from 'react';
 function Event() {
+
+  const eventsFetch = async ()=>{
+    console.log('fetching ');
+    const userData = JSON.parse(localStorage.getItem('user'));
+    const tokenJson = {"token":userData['token']};
+    console.log(tokenJson);
+
+    const response = await axios.get('http://localhost:3000/api/ev/events',JSON.stringify(tokenJson));
+    console.log(response);
+  };
+
+  useEffect(()=>{
+    eventsFetch();
+  },[]);
+
   return (
     <div className='bg-gray-100'>
       <header className=" text-blue-950 py-8 mt-2">

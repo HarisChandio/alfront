@@ -29,7 +29,7 @@ export default function About() {
         <div className="space-y-6 md:space-y-0 md:flex md:gap-6 lg:items-center lg:gap-12">
           <div className="md:5/12 lg:w-5/12 shadow-2xl shadow-blue-300 mt-5">
             <img
-              src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://scontent.fhdd1-1.fna.fbcdn.net/v/t39.30808-6/405157561_879680687018780_5397127823560350904_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=c42490&_nc_eui2=AeHn8dSHSbBGhJp4IFl4lc_2F_4hL2Ydux8X_iEvZh27H2mqaxtaGG8J9LOUBucEeroFJ6MLB9LEBR89JHon2kOH&_nc_ohc=L74Nl8PzV8sAX8bccuJ&_nc_ht=scontent.fhdd1-1.fna&oh=00_AfAopP7OR_Ncz-lgWnMc7VXWUWpE7D6pZDvXEDyOjGG0SQ&oe=65DAC6DA"
               alt="szabist"
             />
           </div>

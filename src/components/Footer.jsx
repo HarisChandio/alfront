@@ -38,7 +38,7 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <h2 className="mb-6 text-sm font-semibold text-white uppercase">
                 Follow us
               </h2>
@@ -59,7 +59,7 @@ export default function Footer() {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <div>
               <h2 className="mb-6 text-sm font-semibold text-white uppercase">
                 Legal
@@ -89,7 +89,7 @@ export default function Footer() {
             . All RIGHTS RESERVED.
           </span>
           <div className="flex mt-4 space-x-5 sm:justify-center sm:mt-0">
-            <Link to="#" className="text-white hover:text-white">
+            {/* <Link to="#" className="text-white hover:text-white">
               <svg
                 className="w-4 h-4"
                 aria-hidden="true"
@@ -148,7 +148,7 @@ export default function Footer() {
                 />
               </svg>
               <span className="sr-only">GitHub account</span>
-            </Link>
+            </Link> */}
             
           </div>
         </div>

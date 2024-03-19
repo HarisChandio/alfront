@@ -3,17 +3,19 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <div className="relative flex items-top justify-center min-h-[700px] bg-white sm:items-center sm:pt-0">
+    
+    <div className="relative flex items-top justify-center min-h-[580px] bg-white sm:items-center sm:pt-0">
       <div className="max-w-6xl mx-auto sm:px-6 lg:px-8">
-        <div className="mt-8 overflow-hidden">
+        <div className="{mt-8} overflow-hidden">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-6 mr-2 bg-blue-100 sm:rounded-lg">
+            <div className="p-6 mr-2 {bg-blue-100} sm:rounded-lg relative left-80">
+              
               <h1 className="text-3xl sm:text-4xl text-gray-800 font-extrabold tracking-tight">
                 Get in touch:
               </h1>
-              <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2">
+              {/* <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 mt-2 ">
                 Fill in the form to start a conversation
-              </p>
+              </p> */}
 
               <div className="flex items-center mt-8 text-gray-600">
                 <svg
@@ -38,7 +40,7 @@ export default function Contact() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <div className="ml-4 text-md tracking-wide  w-40">
+                <div className="ml-4 text-md tracking-wide  {w-40}">
                 State Life Building، Ground & 3rd and 4th, Thandi Sarak, Bangali Colony, Hyderabad
                 </div>
               </div>
@@ -88,7 +90,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <form className="p-6 flex flex-col justify-center">
+            {/* <form className="p-6 flex flex-col justify-center">
               <div className="flex flex-col">
                 <label for="name" className="hidden">
                   Full Name
@@ -134,10 +136,11 @@ export default function Contact() {
               >
                 Submit
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>
     </div>
+    
   );
 }
